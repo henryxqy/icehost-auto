@@ -63,7 +63,10 @@ def add_server_time(server_url="https://dash.icehost.pl/server/4385d863"):
                     return False
 
             # --- 核心操作：查找并点击 "시간 추가" 按钮 ---
-            add_button_selector = 'button:has-text("DODAJ 6 GODZIN WAŻNOŚCI")' # 已更新为新的按钮文本
+            # add_button_selector = 'button:has-text("DODAJ 6 GODZIN WAŻNOŚCI")' # 已更新为新的按钮文本
+            # 修改点 1：使用更模糊的匹配或 CSS 类名
+            # 这里的 .btn-primary 是 IceHost 按钮常用的类名，:has-text 会匹配包含该文字的按钮
+            add_button_selector = 'button:has-text("DODAJ 6")'
             print(f"正在查找并等待 '{add_button_selector}' 按钮...")
 
             try:
