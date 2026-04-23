@@ -32,10 +32,11 @@ jobs:
 
       - name: Run Time Adder Script
         env:
-          PTERODACTYL_COOKIE: ${{ secrets.PTERODACTYL_COOKIE }}
+          # 必须添加这一行，因为 main.py 需要它
+          REMEMBER_WEB_COOKIE: ${{ secrets.REMEMBER_WEB_COOKIE }}
+          # 以下保留备份
           PTERODACTYL_EMAIL: ${{ secrets.PTERODACTYL_EMAIL }}
           PTERODACTYL_PASSWORD: ${{ secrets.PTERODACTYL_PASSWORD }}
-        # 使用 -u 参数禁用输出缓冲，确保日志实时显示
         run: python -u main.py
 
       - name: Upload error artifacts
